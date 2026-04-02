@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>一元二次方程求解器</title>
+</head>
+<body>
+    <h1>一元二次方程 ax² + bx + c = 0</h1>
+    <p>请点击按钮，依次输入 a, b, c（假设 a > 0，Δ ≥ 0）</p>
+    <button onclick="solveQuadratic()">开始求解</button>
+
+    <script>
+        function solveQuadratic() {
+            // 1. 使用 prompt 三次获取系数
+            let aInput = prompt("请输入系数 a (a > 0):");
+            let bInput = prompt("请输入系数 b:");
+            let cInput = prompt("请输入系数 c:");
+
+            // 2. 转换为数字（使用 parseFloat）
+            let a = parseFloat(aInput);
+            let b = parseFloat(bInput);
+            let c = parseFloat(cInput);
+
+            // 3. 计算判别式 delta
+            let delta = b * b - 4 * a * c;
+
+            // 假设 delta >= 0 且 a > 0（题目要求）
+            // 实际测试中如果用户输入不符合，会出现问题（第7步会观察到）
+
+            // 4. 计算两个根
+            let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+            // 5. 使用 alert 显示结果
+            alert("方程的解为：\nx1 = " + x1 + "\nx2 = " + x2);
+
+            // 6. 使用 console.log 输出相同结果
+            console.log("=== 二次方程求解结果 ===");
+            console.log("输入的系数: a = " + a + ", b = " + b + ", c = " + c);
+            console.log("判别式 Δ = " + delta);
+            console.log("x1 = " + x1);
+            console.log("x2 = " + x2);
+        }
+    </script>
+</body>
+</html>
